@@ -4,6 +4,7 @@ import time
 import pickle
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
+import datetime
 
 def raw_data(path_to_data):
 	""" Loads data in df with appropriate index """
@@ -30,11 +31,12 @@ def raw_data(path_to_data):
 	data['Minute'] = data.Time.apply(minute_func)
 	# Pickle
 	path_to_folder = '/home/gpanterov/MyProjects/thesis/detect_informed_trader/raw_data/'
-	pickle_fname = "audcad_data.obj"
+	pickle_fname = "usdchf_data.obj"
 	f = open(path_to_folder + pickle_fname, 'w')
 	pickle.dump(data, f)
 	f.close()
 	print "Data Frame pickled successfully"
+	print pickle_fname
 
 def load_fx_data(pickle_fpath):
 	"""
